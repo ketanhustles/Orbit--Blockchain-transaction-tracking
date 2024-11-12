@@ -7,7 +7,7 @@
 </head>
 <body>
 
-  <h1>Orbit - Blockchain Transaction Tracking</h1>
+  <h1>Trackr - Blockchain Transaction Tracking</h1>
   <p>A decentralized platform for tracking blockchain transactions with a focus on analyzing and visualizing the flow of digital assets. Orbit leverages blockchain technology to ensure transparency and traceability, offering real-time transaction monitoring and analysis for various blockchains.</p>
 
   <h2>Features</h2>
