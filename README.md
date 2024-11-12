@@ -1,73 +1,85 @@
-<p align="center">
-  <a href="https://github.com/s0md3v/Orbit"><img src="https://i.ibb.co/bXsZHW0/orbit.png" alt="Orbit"></a>
-  <br>
-  <b>ＯＲＢＩＴ</b>
-</p>
-<h4 align="center">Blockchain Transactions Investigation Tool</h4>
-<p align="center">
-  <a href="https://github.com/s0md3v/Orbit/releases">
-    <img src="https://img.shields.io/github/release/s0md3v/Orbit.svg">
-  </a>
-  <a href="https://github.com/s0md3v/Orbit/issues?q=is%3Aissue+is%3Aclosed">
-      <img src="https://img.shields.io/github/issues-closed-raw/s0md3v/Orbit.svg">
-  <img src="https://img.shields.io/badge/python-> 3.2-blue.svg">
-  </a>
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Transaction Tracking</title>
+</head>
+<body>
 
-![graph-demo](https://i.ibb.co/rx76Ryt/Screenshot-2019-07-26-03-41-34.png)
+  <h1>Orbit - Blockchain Transaction Tracking</h1>
+  <p>A decentralized platform for tracking blockchain transactions with a focus on analyzing and visualizing the flow of digital assets. Orbit leverages blockchain technology to ensure transparency and traceability, offering real-time transaction monitoring and analysis for various blockchains.</p>
 
-### Introduction
-Orbit is designed to explore network of a blockchain wallet by recursively crawling through transaction history. The data is rendered as a graph to reveal major sources, sinks and suspicious connections.
+  <h2>Features</h2>
+  <ul>
+    <li><strong>Cross-Blockchain Support</strong>: Track transactions across multiple blockchains such as Ethereum, Binance Smart Chain, and others.</li>
+    <li><strong>Real-Time Monitoring</strong>: Provides live tracking of blockchain transactions to visualize the flow of assets in real time.</li>
+    <li><strong>Transaction History</strong>: Allows users to view detailed transaction histories, including transfers, contract interactions, and more.</li>
+    <li><strong>Visualization</strong>: Offers an intuitive and user-friendly interface for visualizing transaction flows, helping users understand the movement of funds.</li>
+    <li><strong>Analytics</strong>: Includes analytical tools to detect patterns and behaviors in blockchain transactions, helping users identify trends and anomalies.</li>
+  </ul>
 
-> **Note:** Orbit only runs on Python 3.2 and above.
+  <h2>Tech Stack</h2>
+  <ul>
+    <li><strong>Blockchain</strong>: Ethereum, Binance Smart Chain (or any EVM-compatible network)</li>
+    <li><strong>Smart Contracts</strong>: Solidity</li>
+    <li><strong>Frontend</strong>: React.js</li>
+    <li><strong>Web3 Integration</strong>: Web3.js, Ethers.js</li>
+    <li><strong>Backend</strong>: Node.js (optional for certain features)</li>
+    <li><strong>Visualization</strong>: D3.js, Chart.js</li>
+    <li><strong>Styling</strong>: Material-UI, CSS</li>
+    <li><strong>Testing</strong>: Mocha, Chai</li>
+  </ul>
 
-### Usage
+  <h2>Installation</h2>
+  <h3>Prerequisites</h3>
+  <p>Ensure you have the following installed on your local machine:</p>
+  <ul>
+    <li>Node.js and npm</li>
+    <li>Truffle or Hardhat (for smart contract deployment)</li>
+    <li>MetaMask (or any Ethereum wallet) for interacting with the platform</li>
+  </ul>
 
-Let's start by crawling transaction history of a wallet
-```
-python3 orbit.py -s 1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F
-```
-Crawling multiple wallets is no different.
-```
-python3 orbit.py -s 1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F,1ETBbsHPvbydW7hGWXXKXZ3pxVh3VFoMaX
-```
-Orbit fetches last 50 transactions from each wallet by default, but it can be tuned with `-l` option.
-```
-python3 orbit.py -s 1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F -l 100
-```
-Orbit's default crawling depth is 3 i.e. it fetches the history of target wallet(s), crawls the newly found wallets and then crawls the wallets in the result again. The crawling depth can be increased or decresead with `-d` option.
-```
-python3 orbit.py -s 1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F -d 2
-```
-Wallets that have made just a couple of interactions with our target may not be important, Orbit can be told to crawl top N wallets at each level by using the `-t` option.
-```
-python3 orbit.py -s 1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F -t 20
-```
-If you want to view the collected data with a graph viewer of your choice, you can use -o option.
-```
-python3 orbit.py -s 1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F -o output.graphml
-```
-Support Formats
+  <h3>1. Clone the Repository</h3>
+  <pre><code>git clone https://github.com/ketanhustles/Orbit--Blockchain-transaction-tracking.git
+cd Orbit--Blockchain-transaction-tracking</code></pre>
 
-- `graphml` (Supported by most graph viewers)
-- `json` (For raw processing)
+  <h3>2. Install Dependencies</h3>
+  <pre><code>npm install</code></pre>
 
+  <h3>3. Compile Smart Contracts</h3>
+  <p>Using Hardhat (or Truffle):</p>
+  <pre><code>npx hardhat compile</code></pre>
 
-This is your terminal dashboard.
+  <h3>4. Deploy Contracts</h3>
+  <p>You can deploy the smart contracts to a local or test Ethereum network:</p>
+  <pre><code>npx hardhat run scripts/deploy.js --network &lt;network-name&gt;</code></pre>
+  <p>Replace &lt;network-name&gt; with the desired network (e.g., ropsten, sepolia, localhost).</p>
 
-![demo-terminal](https://i.ibb.co/pZG24vT/Screenshot-2019-07-26-08-07-10.png)
+  <h3>5. Run the DApp</h3>
+  <p>To run the frontend locally:</p>
+  <pre><code>npm start</code></pre>
+  <p>Access the app at <a href="http://localhost:3000">http://localhost:3000</a>.</p>
 
+  <h2>Usage</h2>
+  <ol>
+    <li>Connect your Ethereum wallet (MetaMask or any compatible wallet) to the DApp.</li>
+    <li>Track transactions on the selected blockchain network.</li>
+    <li>Visualize transaction flows, including deposits, withdrawals, and contract interactions.</li>
+    <li>Utilize analytics tools to detect trends and patterns in blockchain transactions.</li>
+  </ol>
 
-### Visualization
-Once the scan is complete, the graph will automatically open in your default browser. If it doesn't open, open `quark.html` manually.
-Don't worry if your graph looks messy like the one below or worse.
+  <h2>Contributing</h2>
+  <ol>
+    <li>Fork the repository.</li>
+    <li>Create a feature branch (<code>git checkout -b feature-branch</code>).</li>
+    <li>Commit your changes (<code>git commit -m 'Add new feature'</code>).</li>
+    <li>Push to the branch (<code>git push origin feature-branch</code>).</li>
+    <li>Create a new Pull Request.</li>
+  </ol>
 
-![graph-setup](https://i.ibb.co/xJ38DF9/Screenshot-2019-07-26-08-21-18.png)
+  <h2>License</h2>
+  <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
 
-Select the **Make Clusters** option to form clusters using community detection algorithm. After that, you can use **Color Clusters** to give different colors to each community and then use **Spacify** option to fix overlapping nodes & edges.
-
-![graph-fixed](https://i.ibb.co/SsGhkJN/Screenshot-2019-07-26-09-21-08.png)
-
-The thickness of edges depends on the frequency of transactions between two wallets while the size of a node depends on both transaction frequency and the number of connections of the node.
-
-As Orbit uses ![Quark](https://github.com/s0md3v/Quark) to render the graph, more information about the various features and controls is available in Quark's README.
+</body>
+</html>
